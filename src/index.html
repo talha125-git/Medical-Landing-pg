@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        menuBtn.addEventListener('click', () => {
+            if (mobileNav.classList.contains('hidden')) {
+                mobileNav.classList.remove('hidden');
+                setTimeout(() => mobileNav.classList.add('active'), 10); // allow transition
+            } else {
+                mobileNav.classList.remove('active');
+                setTimeout(() => mobileNav.classList.add('hidden'), 300); // wait for animation
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Custom transition classes for smooth animation */
+    .slide-down {
+        transition: transform 0.6s ease, opacity 0.3s ease;
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    .slide-down.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+</style>
+
+<body class="font-sans text-gray-700 ">
+    <!-- Header -->
+    <header class="p-5 flex justify-between items-center relative bg-white ">
+        <!-- Logo -->
+        <div class="flex items-center ">
+            <span>
+                <ion-icon name="add-circle" class="text-blue-300 text-4xl mt-[6px]"></ion-icon>
+            </span>
+            <span class="text-blue-500 text-2xl font-bold">LOGO</span>
+        </div>
+
+        <!-- Nav (Desktop only) -->
+        <nav class="hidden md:flex justify-between space-x-11">
+            <ul class="flex space-x-7">
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Home</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Services</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">History</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">About</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Contact</a></li>
+            </ul>
+            <div class=" cursor-pointer">
+                <ion-icon name="menu-outline" class="text-blue-500 text-3xl"></ion-icon>
+            </div>
+        </nav>
+
+        <!-- Menu Icon (Mobile only) -->
+        <div id="menu-btn" class="md:hidden cursor-pointer">
+            <ion-icon name="menu-outline" class="text-blue-500 text-3xl"></ion-icon>
+        </div>
+
+        <!-- Mobile Nav with Slide Animation -->
+        <div id="mobile-nav"
+            class="hidden absolute top-full left-0 w-full bg-white shadow-md p-4 md:hidden z-10 slide-down">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Home</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Services</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">History</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">About</a></li>
+                <li><a href="#" class="hover:underline text-blue-600 font-medium">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home -->
+
+    <section>
+        <div class="px-5">
+            <div class="p-3">
+                <h1 class="md:text-8xl text-6xl font-bold text-[#02597F]">
+                    MEDICAL <br> SERVICES
+                </h1>
+                <p class="text-xl font-bold text-[#78b6bc]">Extensive experience in the medical sector</p>
+                <p class="mt-10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <br>
+                    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam <br>
+                    erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.</p>
+            </div>
+        </div>
+
+        <div class="main bg-blue-500 md:flex p-6">
+            <div class="flex flex-col md:flex-row justify-center md:items-center h-full gap-10">
+                <button class="bg-blue-600 border border-blue-300 md:w-auto w-36 px-5 py-3 text-white rounded-full 
+    transition duration-300 ease-in-out hover:bg-blue-100 hover:text-blue-800">
+                    Read More
+                </button>
+
+
+
+
+                <li class="list-none flex flex-wrap space-x-3">
+                    <div>
+                        <h1 class="text-3xl font-bold text-white">50+</h1>
+                        <p class="text-sky-200">Committed <br> collaborators</p>
+                    </div>
+
+                    <div class="h-14 mt-3 flex justify-center border-l-2 border-white mx-6"></div>
+
+                    <div>
+                        <h1 class="text-3xl font-bold text-white">6</h1>
+                        <p class="text-sky-200">Centers in <br> the country</p>
+                    </div>
+
+                    <div class="h-14 mt-3 flex justify-center border-l-2 border-white mx-6"></div>
+
+                    <div>
+                        <h1 class="text-3xl font-bold text-white">3K+</h1>
+                        <p class="text-sky-200">Insured <br> persons</p>
+                    </div>
+                </li>
+            </div>
+
+        </div>
+
+        <!-- image -->
+        <div class="absolute  lg:top-[180px] lg:right-0">
+            <img src="https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="" class="rounded-tl-full md:rounded-tr-none rounded-tr-full  border-t-18 border-l-14 border-[#c3e3f1]">
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
